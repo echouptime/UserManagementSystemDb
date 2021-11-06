@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户信息</title>
+</head>
+<body>
+
+
+<a href="/create/" >新建用户</a>
+<a href="/query/">查询用户</a>
+
+<br>
+<br>
+<table>
+        <thead >
+            <tr bgcolor="#ffe4c4">
+                <td width="10%">ID</td>
+                <td width="10%" >姓名</td>
+                <td width="10%" >性别</td>
+                <td width="15%">部门</td>
+                <td width="10%">薪资</td>
+                <td width="20%">联系方式</td>
+                <td >住址</td>
+                <td width="10%">操作</td>
+            </tr>
+        </thead>
+
+        <tbody>
+        {{ range .Users }}
+        <tr bgcolor="#f0ffff">
+            <td>{{ .Id }}</td>
+            <td>{{ .Name }}</td>
+            <td> {{ sex .Sex  }} </td>
+            <td>{{ .Department }}</td>
+            <td>{{ .Salary }}</td>
+            <td>{{ .Phone }}</td>
+            <td>{{ .Addr }}</td>
+            <td>
+            <a href="/update/?id={{ .Id }}" type="button" >修改</a>
+                <a href="/delete/?id={{ .Id }}" type="button" >删除</a>
+            </td>
+        </tr>
+        {{ end }}
+        </tbody>
+
+    </table>
+
+
+</body>
+</html>

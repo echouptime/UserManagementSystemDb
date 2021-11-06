@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询用户</title>
+
+</head>
+<body>
+
+<form action="/query/" method="post">
+
+    <label>请输入查询信息: </label><input name="info" value=""><br><br>
+    <label></label><input type="submit" name="提交">
+
+</form>
+
+<br>
+<br>
+
+<table>
+    <thead >
+    <tr bgcolor="#ffe4c4">
+        <td width="10%">ID</td>
+        <td width="10%" >姓名</td>
+        <td width="10%" >性别</td>
+        <td width="10%">部门</td>
+        <td width="10%">薪资</td>
+        <td width="10%">联系方式</td>
+        <td width="10%">住址</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    {{ range. }}
+    <tr bgcolor="#f0ffff">
+        <td>{{ .Id }}</td>
+        <td>{{ .Name }}</td>
+        <td> {{ if .Sex }}男 {{ else }} 女 {{ end }}</td>
+        <td>{{ .Department }}</td>
+        <td>{{ .Salary }}</td>
+        <td>{{ .Phone }}</td>
+        <td>{{ .Addr }}</td>
+    </tr>
+    {{ end }}
+    </tbody>
+
+</table>
+</body>
+
+</html>

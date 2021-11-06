@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户</title>
+    <style type="text/css">
+        font {
+            font-size: 20px;
+            color: bisque;
+        }
+    </style>
+</head>
+<body>
+<form action="/update/" method="post" >
+
+    <label >ID: </label><input name="id" value="{{ .User.Id }}" readonly>  <br>
+    <label >用户名: </label><input name="name" value="{{ .User.Name }}" >  <br>
+
+    <label>性别: </label>
+    {{ if eq .User.Sex  1  }}
+    <input name="sex" value="0" type="radio"  >男
+    <input name="sex" value="1" type="radio" checked="checked">女
+    {{ else }}
+    <input name="sex" value="0"  type="radio"  checked="checked">男
+    <input name="sex" value="1" type="radio">女
+    {{ end }}
+    <br>
+    <label>部门: </label><input name="department" value=" {{ .User.Department }}" > <br>
+    <label>住址: </label><input name="addr" value="{{ .User.Addr }}" ><br>
+    <label>薪资: </label><input name="salary" value="{{ .User.Salary }}"><br>
+    <label>联系方式: </label><input name="phone" value="{{ .User.Phone }}">  <br>
+    <input type="submit" value="提交">
+
+</form>
+</body>
+
+</html>

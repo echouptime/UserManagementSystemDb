@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建用户</title>
+    <style type="text/css">
+        font {
+            font-size: 20px;
+            color: bisque;
+        }
+    </style>
+</head>
+<body>
+<form action="/create/" method="post" >
+    <label >用户名: </label><input name="name" value="" > {{ .Errors.name }}<br>
+    <label>性别: </label>
+    <input name="sex" value="0" checked="checked" type="radio">男
+    <input name="sex" value="1" type="radio">女
+    <br>
+    <label>部门: </label><input name="department" value="" > {{ .Errors.department }} <br>
+    <label>住址: </label><input name="addr" value="" >{{ .Errors.addr }}<br>
+    <label>联系方式: </label><input name="phone" value=""> {{ .Errors.phone }} <br>
+    <label>薪资: </label><input name="salary" value="">{{ .Errors.salary }}<br>
+    <input type="submit" value="创建">
+</form>
+</body>
+
+</html>
